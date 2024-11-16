@@ -1,0 +1,156 @@
+{
+	"info": {
+		"_postman_id": "5d703902-192e-4480-971a-cdb92db80d95",
+		"name": "Booking Service API",
+		"description": "Postman collection for Booking and Ticket Service API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "141723"
+	},
+	"item": [
+		{
+			"name": "Create Booking",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"user_id\": 1,\n    \"event_id\": 1,\n    \"ticket_ids\": [\n        1,\n        2,\n        3\n    ]\n}"
+				},
+				"url": {
+					"raw": "{{base_url}}/api/bookings",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"bookings"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Booking By ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/api/bookings/:id",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"bookings",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cancel Booking",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/api/bookings/:id",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"bookings",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Tickets for Event",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"num_tickets\": 10,\n    \"price\": 50.0\n}"
+				},
+				"url": {
+					"raw": "{{base_url}}/api/tickets/1",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"tickets",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Booking Status",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"status\" : \"CONFIRMED\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/api/bookings/:id",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"bookings",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://localhost:8080"
+		}
+	]
+}
